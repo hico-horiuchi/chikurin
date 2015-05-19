@@ -14,6 +14,9 @@ func main() {
 		Use:   "chikurin",
 		Short: "Sensu status page by golang",
 		Long:  "Sensu status page by golang\nhttps://github.com/hico-horiuchi/chikurin",
+		PersistentPreRun: func(cmd *cobra.Command, args []string) {
+			chikurin.LoadConfig()
+		},
 		Run: func(cmd *cobra.Command, args []string) {
 			chikurin.Serve()
 		},
