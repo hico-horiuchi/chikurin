@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('/assets/fonts/icomoon.eot?ma0e79');
+  src: url('/assets/fonts/icomoon.eot?#iefixma0e79') format('embedded-opentype'),
+       url('/assets/fonts/icomoon.woff?ma0e79') format('woff'),
+       url('/assets/fonts/icomoon.ttf?ma0e79') format('truetype'),
+       url('/assets/fonts/icomoon.svg?ma0e79#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icon-'], [class*=' icon-'] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-bamboo:before {
+  content: '\e600';
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
+body {
+  font-family: Exo;
+  font-weight: 400;
+}
+.bold {
+  font-weight: 600;
+}
+
+.margin-top    { margin-top:    20px; }
+.margin-bottom { margin-bottom: 20px; }
+.margin-left   { margin-left:   20px; }
+.margin-right  { margin-right:  20px; }
+.margin-small-top    { margin-top:    5px; }
+.margin-small-bottom { margin-bottom: 5px; }
+.margin-small-left   { margin-left:   5px; }
+.margin-small-right  { margin-right:  5px; }
+
+.navbar {
+  border: none;
+}
+.navbar-default {
+  background: transparent;
+}
+
+footer a {
+  color: #333333;
+}
+footer a:hover {
+  color: #999999;
+  text-decoration: none;
+}

@@ -1,0 +1,22 @@
+= doctype html
+html
+  head
+    chikurin
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link href="//fonts.googleapis.com/css?family=Exo:400,600" rel="stylesheet"
+    link href="/assets/stylesheets/application.min.css" rel="stylesheet"
+    link href="/assets/stylesheets/chikurin.css" rel="stylesheet"
+
+  body
+    nav.navbar.navbar-default role="navigation"
+      .container
+        .navbar-header
+          a.navbar-brand
+            i.icon-bamboo
+            span.bold.margin-small-left chikurin
+
+    .container
+      footer.margin-top.margin-bottom
+        small
+          span.margin-small-right &copy;
+          a href="http://hico-horiuchi.github.io" target="_blank" Akihiko Horiuchi

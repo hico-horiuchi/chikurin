@@ -1,0 +1,10 @@
+gom 'github.com/zenazn/goji'
+gom 'github.com/yosssi/ace'
+gom 'github.com/spf13/cobra'
+gom 'github.com/tcnksm/go-latest'
+gom 'github.com/VividCortex/godaemon'
+
+group :development do
+  gom 'golang.org/x/tools/cmd/goimports'
+  gom 'github.com/pilu/fresh'
+end
