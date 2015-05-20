@@ -1,5 +1,7 @@
 ## chikurin v0.1.0
 
+![image.png](https://raw.githubusercontent.com/hico-horiuchi/chikurin/master/image.png)
+
 #### Requirements
 
   - [Golang](https://golang.org/) >= 1
@@ -35,6 +37,22 @@
     }
 
 #### Usage
+
+    Sensu status page by golang
+    https://github.com/hico-horiuchi/chikurin
+    
+    Usage: 
+      chikurin [flags]
+      chikurin [command]
+    
+    Available Commands: 
+      version     Print and check version of chikurin
+      help        Help about any command
+    
+    Flags:
+      -h, --help=false: help for chikurin
+    
+    Use "chikurin help [command]" for more information about a command.
 
 #### License
 
