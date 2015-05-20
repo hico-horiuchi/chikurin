@@ -8,6 +8,6 @@ import (
 
 func Serve() {
 	goji.Get("/assets/*", http.StripPrefix("/assets", http.FileServer(http.Dir("assets"))))
-	goji.Get("/", viewLayout)
+	goji.Get("/:datacenter/:client", statusPage)
 	goji.Serve()
 }

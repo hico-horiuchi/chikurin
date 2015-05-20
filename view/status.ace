@@ -1,0 +1,21 @@
+= content main
+  .h4.bold
+    | {{.Client.Name}}
+    span.text-muted.margin-small-left {{.Client.Address}}
+
+  .margin-top
+    {{if .Events}}
+      {{range .Events}}
+        {{if eq .Check.Status 1}}
+          .alert.alert-warning
+            .bold {{.Check.Output}}
+        {{end}}
+        {{if eq .Check.Status 2}}
+          .alert.alert-danger
+            .bold {{.Check.Output}}
+        {{end}}
+      {{end}}
+    {{else}}
+      .alert.alert-success
+        .bold All checks are OK.
+    {{end}}

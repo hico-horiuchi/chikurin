@@ -17,14 +17,6 @@ type configStruct struct {
 	Timeout     int
 }
 
-type datacentorStruct struct {
-	Name     string
-	Host     string
-	Port     int
-	User     string
-	Password string
-}
-
 func LoadConfig() {
 	bytes, err := ioutil.ReadFile(os.Getenv("HOME") + "/.chikurin.json")
 	checkError(err)

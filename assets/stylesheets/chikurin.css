@@ -24,9 +24,9 @@
   content: '\e600';
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .container {
-    width: 970px;
+    width: 750px;
   }
 }
 
@@ -49,9 +49,13 @@ body {
 
 .navbar {
   border: none;
+  margin-bottom: 0;
 }
 .navbar-default {
   background: transparent;
+}
+.alert {
+  margin-bottom: 10px;
 }
 
 footer a {
@@ -60,4 +64,8 @@ footer a {
 footer a:hover {
   color: #999999;
   text-decoration: none;
+}
+
+.text-muted {
+  color: #999999;
 }

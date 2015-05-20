@@ -1,7 +1,7 @@
 = doctype html
 html
   head
-    chikurin
+    title {{.Title}} | chikurin
     meta name="viewport" content="width=device-width, initial-scale=1"
     link href="//fonts.googleapis.com/css?family=Exo:400,600" rel="stylesheet"
     link href="/assets/stylesheets/application.min.css" rel="stylesheet"
@@ -16,6 +16,8 @@ html
             span.bold.margin-small-left chikurin
 
     .container
+      = yield main
+
       footer.margin-top.margin-bottom
         small
           span.margin-small-right &copy;
