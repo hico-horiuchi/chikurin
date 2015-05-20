@@ -10,7 +10,7 @@
 #### Installation
 
     $ git clone git://github.com/hico-horiuchi/chikurin.git
-    $ cd ohgi
+    $ cd chikurin
     $ make gom
     $ sudo make install
 
