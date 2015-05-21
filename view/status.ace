@@ -8,14 +8,17 @@
       {{range .Events}}
         {{if eq .Check.Status 1}}
           .alert.alert-warning
-            .bold {{.Check.Output}}
+            i.fa.fa-fw.fa-exclamation-triangle.margin-small-right
+            span.bold {{.Check.Output}}
         {{end}}
         {{if eq .Check.Status 2}}
           .alert.alert-danger
-            .bold {{.Check.Output}}
+            i.fa.fa-fw.fa-times-circle.margin-small-right
+            span.bold {{.Check.Output}}
         {{end}}
       {{end}}
     {{else}}
       .alert.alert-success
-        .bold All checks are OK.
+        i.fa.fa-fw.fa-check-circle.margin-small-right
+        span.bold All checks are OK.
     {{end}}
