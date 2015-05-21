@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-type datacentorStruct struct {
+type datacenterStruct struct {
 	Name     string
 	Host     string
 	Port     int
@@ -14,7 +14,7 @@ type datacentorStruct struct {
 	Password string
 }
 
-func (dc datacentorStruct) makeRequest(method string, namespace string, payload io.Reader) (*http.Request, error) {
+func (dc datacenterStruct) makeRequest(method string, namespace string, payload io.Reader) (*http.Request, error) {
 	url := "http://" + dc.Host + ":" + strconv.Itoa(dc.Port) + namespace
 	request, err := http.NewRequest(method, url, payload)
 	if err != nil {

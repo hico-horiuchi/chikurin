@@ -9,7 +9,7 @@ type clientStruct struct {
 	Timestamp     int64
 }
 
-func (dc datacentorStruct) getClientsClient(name string) (clientStruct, error) {
+func (dc datacenterStruct) getClientsClient(name string) (clientStruct, error) {
 	var client clientStruct
 
 	request, err := dc.makeRequest("GET", "/clients/"+name, nil)

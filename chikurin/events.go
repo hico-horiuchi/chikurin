@@ -10,7 +10,7 @@ type eventStruct struct {
 	Action      string
 }
 
-func (dc datacentorStruct) getEventsClient(name string) ([]eventStruct, error) {
+func (dc datacenterStruct) getEventsClient(name string) ([]eventStruct, error) {
 	var events []eventStruct
 
 	request, err := dc.makeRequest("GET", "/events/"+name, nil)

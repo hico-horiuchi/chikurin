@@ -13,7 +13,7 @@ var config configStruct
 var timeout = 3 * time.Second
 
 type configStruct struct {
-	Datacenters []datacentorStruct
+	Datacenters []datacenterStruct
 	Timeout     int
 }
 
@@ -30,10 +30,10 @@ func LoadConfig() {
 	http.DefaultClient.Timeout = timeout
 }
 
-func (c configStruct) selectDatacenter(name string) (datacentorStruct, error) {
+func (c configStruct) selectDatacenter(name string) (datacenterStruct, error) {
 	switch {
 	case len(c.Datacenters) < 1:
-		return datacentorStruct{}, errors.New("chikurin: no datacenters in config")
+		return datacenterStruct{}, errors.New("chikurin: no datacenters in config")
 	case name == "":
 		return c.Datacenters[0], nil
 	}
@@ -44,5 +44,5 @@ func (c configStruct) selectDatacenter(name string) (datacentorStruct, error) {
 		}
 	}
 
-	return datacentorStruct{}, errors.New("chikurin: no such datacenter in config")
+	return datacenterStruct{}, errors.New("chikurin: no such datacenter in config")
 }
