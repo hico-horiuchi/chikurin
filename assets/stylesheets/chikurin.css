@@ -58,6 +58,9 @@ body {
   margin-bottom: 10px;
   border-width: 0 1px 1px 1px;
 }
+.panel-heading a {
+  color: #fff;
+}
 .panel-body ul {
   margin-bottom: 0;
 }
@@ -86,4 +89,17 @@ footer a:hover {
 
 .text-muted {
   color: #999999;
+}
+
+.relative {
+  position: relative;
+  height: 19px;
+}
+.relative-left {
+  position: absolute;
+  left: 0;
+}
+.relative-right {
+  position: absolute;
+  right: 0;
 }

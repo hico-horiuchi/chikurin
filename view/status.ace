@@ -7,43 +7,75 @@
       {{range .Events}}
         {{if eq .Check.Status 1}}
           .panel.panel-warning
-            .panel-heading
-              i.fa.fa-fw.fa-exclamation-triangle.margin-small-right
-              span.bold {{.Check.Name}}
-            .panel-body
-              ul.fa-ul
-                li
-                  i.fa-li.fa.fa-calendar
-                  | {{.Since}}
-                li
-                  i.fa-li.fa.fa-at
-                  | {{.At}}
-              .well {{.Check.Output}}
+            .panel-heading.panel-radius-bottom
+              .relative
+                .relative-left
+                  i.fa.fa-fw.fa-exclamation-triangle.margin-small-right
+                  span.bold {{.Check.Name}}
+                .relative-right
+                  a data-toggle="collapse" href="#collapse-{{.Check.Name}}"
+                    i.fa.fa-fw.fa-chevron-down
+            .panel-collapse.collapse id="collapse-{{.Check.Name}}"
+              .panel-body
+                ul.fa-ul
+                  li
+                    i.fa-li.fa.fa-calendar
+                    | {{.Since}}
+                  li
+                    i.fa-li.fa.fa-at
+                    | {{.At}}
+                .well {{.Check.Output}}
         {{end}}
         {{if eq .Check.Status 2}}
           .panel.panel-danger
-            .panel-heading
-              i.fa.fa-fw.fa-times-circle.margin-small-right
-              span.bold {{.Check.Name}}
-            .panel-body
-              ul.fa-ul
-                li
-                  i.fa-li.fa.fa-calendar
-                  | {{.Since}}
-                li
-                  i.fa-li.fa.fa-at
-                  | {{.At}}
-              .well {{.Check.Output}}
+            .panel-heading.panel-radius-bottom
+              .relative
+                .relative-left
+                  i.fa.fa-fw.fa-times-circle.margin-small-right
+                  span.bold {{.Check.Name}}
+                .relative-right
+                  a data-toggle="collapse" href="#collapse-{{.Check.Name}}"
+                    i.fa.fa-fw.fa-chevron-down
+            .panel-collapse.collapse id="collapse-{{.Check.Name}}"
+              .panel-body
+                ul.fa-ul
+                  li
+                    i.fa-li.fa.fa-calendar
+                    | {{.Since}}
+                  li
+                    i.fa-li.fa.fa-at
+                    | {{.At}}
+                .well {{.Check.Output}}
         {{end}}
       {{end}}
     {{else}}
       .panel.panel-success
-        .panel-heading
-          i.fa.fa-fw.fa-check-circle.margin-small-right
-          span.bold All Systems Operational
-        .panel-body
-          ul.fa-ul
-            li
-              i.fa-li.fa.fa-at
-              | {{.Client.At}}
+        .panel-heading.panel-radius-bottom
+          .relative
+            .relative-left
+              i.fa.fa-fw.fa-check-circle.margin-small-right
+              span.bold All Systems Operational
+            .relative-right
+              a data-toggle="collapse" href="#collapse-ok"
+                i.fa.fa-fw.fa-chevron-down
+        .panel-collapse.collapse#collapse-ok
+          .panel-body
+            ul.fa-ul
+              li
+                i.fa-li.fa.fa-at
+                | {{.Client.At}}
     {{end}}
+
+  = javascript
+    $(function(){
+      $('[id^=collapse-]').on('hidden.bs.collapse', function(){
+        $(this).siblings('.panel-heading').addClass('panel-radius-bottom');
+        $(this).siblings('.panel-heading').find('.fa-chevron-up').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+      });
+      $('[id^=collapse-]').on('show.bs.collapse', function(){
+        $(this).siblings('.panel-heading').removeClass('panel-radius-bottom');
+      });
+      $('[id^=collapse-]').on('shown.bs.collapse', function(){
+        $(this).siblings('.panel-heading').find('.fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+      });
+    });

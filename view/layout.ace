@@ -6,6 +6,7 @@ html
     link href="//fonts.googleapis.com/css?family=Exo:400,600" rel="stylesheet"
     link href="/assets/stylesheets/application.min.css" rel="stylesheet"
     link href="/assets/stylesheets/chikurin.css" rel="stylesheet"
+    script src="/assets/javascripts/application.min.js" type="text/javascript"
 
   body
     nav.navbar.navbar-default role="navigation"
