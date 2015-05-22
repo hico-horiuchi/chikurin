@@ -3,7 +3,6 @@ html
   head
     title {{.Title}} | chikurin
     meta name="viewport" content="width=device-width, initial-scale=1"
-    link href="//fonts.googleapis.com/css?family=Exo:400,600" rel="stylesheet"
     link href="/assets/stylesheets/application.min.css" rel="stylesheet"
     link href="/assets/stylesheets/chikurin.css" rel="stylesheet"
     script src="/assets/javascripts/application.min.js" type="text/javascript"
@@ -14,7 +13,7 @@ html
         .navbar-header
           a.navbar-brand href="/"
             i.icon-bamboo
-            span.bold.margin-small-left chikurin
+            span.demibold.margin-small-left chikurin
 
     .container
       = yield main

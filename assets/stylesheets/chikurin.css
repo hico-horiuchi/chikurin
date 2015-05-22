@@ -1,4 +1,16 @@
 @font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/exo-regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/assets/fonts/exo-demibold.ttf') format('truetype');
+}
+@font-face {
   font-family: 'icomoon';
   src: url('/assets/fonts/icomoon.eot?ma0e79');
   src: url('/assets/fonts/icomoon.eot?#iefixma0e79') format('embedded-opentype'),
@@ -34,7 +46,7 @@ body {
   font-family: Exo;
   font-weight: 400;
 }
-.bold {
+.demibold {
   font-weight: 600;
 }
 
