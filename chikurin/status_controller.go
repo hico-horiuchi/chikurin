@@ -7,15 +7,15 @@ import (
 	"github.com/zenazn/goji/web"
 )
 
-type statusStruct struct {
+type statusData struct {
 	Title     string
 	Timestamp string
 	Client    clientStruct
 	Events    []eventStruct
 }
 
-func statusPage(c web.C, w http.ResponseWriter, r *http.Request) {
-	var status statusStruct
+func statusController(c web.C, w http.ResponseWriter, r *http.Request) {
+	var status statusData
 
 	dc, err := config.selectDatacenter(c.URLParams["datacenter"])
 	if err != nil {
