@@ -1,24 +1,49 @@
 = content main
-  .h4.bold
-    | {{.Client.Name}}
-    span.text-muted.margin-small-left {{.Client.Address}}
+  h2.bold {{.Client.Name}}
+  h4.bold.text-muted {{.Client.Address}}
 
   .margin-top
     {{if .Events}}
       {{range .Events}}
         {{if eq .Check.Status 1}}
-          .alert.alert-warning
-            i.fa.fa-fw.fa-exclamation-triangle.margin-small-right
-            span.bold {{.Check.Output}}
+          .panel.panel-warning
+            .panel-heading
+              i.fa.fa-fw.fa-exclamation-triangle.margin-small-right
+              span.bold {{.Check.Name}}
+            .panel-body
+              ul.fa-ul
+                li
+                  i.fa-li.fa.fa-calendar
+                  | {{.Since}}
+                li
+                  i.fa-li.fa.fa-at
+                  | {{.At}}
+              .well {{.Check.Output}}
         {{end}}
         {{if eq .Check.Status 2}}
-          .alert.alert-danger
-            i.fa.fa-fw.fa-times-circle.margin-small-right
-            span.bold {{.Check.Output}}
+          .panel.panel-danger
+            .panel-heading
+              i.fa.fa-fw.fa-times-circle.margin-small-right
+              span.bold {{.Check.Name}}
+            .panel-body
+              ul.fa-ul
+                li
+                  i.fa-li.fa.fa-calendar
+                  | {{.Since}}
+                li
+                  i.fa-li.fa.fa-at
+                  | {{.At}}
+              .well {{.Check.Output}}
         {{end}}
       {{end}}
     {{else}}
-      .alert.alert-success
-        i.fa.fa-fw.fa-check-circle.margin-small-right
-        span.bold All checks are OK.
+      .panel.panel-success
+        .panel-heading
+          i.fa.fa-fw.fa-check-circle.margin-small-right
+          span.bold All Systems Operational
+        .panel-body
+          ul.fa-ul
+            li
+              i.fa-li.fa.fa-at
+              | {{.Client.At}}
     {{end}}

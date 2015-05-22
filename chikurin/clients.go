@@ -7,6 +7,7 @@ type clientStruct struct {
 	Address       string
 	Subscriptions []string
 	Timestamp     int64
+	At            string
 }
 
 func (dc datacenterStruct) getClientsClient(name string) (clientStruct, error) {
@@ -23,5 +24,10 @@ func (dc datacenterStruct) getClientsClient(name string) (clientStruct, error) {
 	}
 
 	err = json.Unmarshal(contents, &client)
+	if err != nil {
+		return client, err
+	}
+
+	client.At = utoa(client.Timestamp)
 	return client, err
 }

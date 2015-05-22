@@ -49,13 +49,31 @@ body {
 
 .navbar {
   border: none;
-  margin-bottom: 0;
+  margin-bottom: -10px;
 }
 .navbar-default {
   background: transparent;
 }
-.alert {
+.panel {
   margin-bottom: 10px;
+  border-width: 0 1px 1px 1px;
+}
+.panel-body ul {
+  margin-bottom: 0;
+}
+.panel-radius-bottom {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.well {
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+h2 {
+  margin-top: 10px;
 }
 
 footer a {

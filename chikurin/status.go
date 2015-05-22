@@ -8,9 +8,10 @@ import (
 )
 
 type statusStruct struct {
-	Title  string
-	Client clientStruct
-	Events []eventStruct
+	Title     string
+	Timestamp string
+	Client    clientStruct
+	Events    []eventStruct
 }
 
 func statusPage(c web.C, w http.ResponseWriter, r *http.Request) {
