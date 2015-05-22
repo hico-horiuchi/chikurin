@@ -14,6 +14,7 @@ var timeout = 3 * time.Second
 
 type configStruct struct {
 	Datacenters []datacenterStruct
+	ShowClients bool `json:"show_clients"`
 	Timeout     int
 }
 

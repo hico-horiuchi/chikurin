@@ -10,6 +10,23 @@ type clientStruct struct {
 	At            string
 }
 
+func (dc datacenterStruct) getClients() ([]clientStruct, error) {
+	var clients []clientStruct
+
+	request, err := dc.makeRequest("GET", "/clients", nil)
+	if err != nil {
+		return clients, err
+	}
+
+	contents, err := sensuAPI(request)
+	if err != nil {
+		return clients, err
+	}
+
+	err = json.Unmarshal(contents, &clients)
+	return clients, err
+}
+
 func (dc datacenterStruct) getClientsClient(name string) (clientStruct, error) {
 	var client clientStruct
 

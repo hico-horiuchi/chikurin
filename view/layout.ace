@@ -8,12 +8,27 @@ html
     script src="/assets/javascripts/application.min.js" type="text/javascript"
 
   body
-    nav.navbar.navbar-default role="navigation"
+    nav.navbar.navbar-default
       .container
         .navbar-header
-          a.navbar-brand href="/"
+          button.navbar-toggle type="button" data-toggle="collapse" data-target="#navbar-collapse"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .navbar-brand
             i.icon-bamboo
             span.demibold.margin-small-left chikurin
+
+        {{if .Search}}
+          .collapse.navbar-collapse#navbar-collapse
+            form.navbar-form.navbar-right
+              .form-group
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-fw.fa-search
+                  input.form-control#navbar-search type="text" placeholder="Name"
+        {{end}}
 
     .container
       = yield main

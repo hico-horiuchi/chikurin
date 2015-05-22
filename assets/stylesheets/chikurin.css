@@ -36,12 +36,6 @@
   content: '\e600';
 }
 
-@media (min-width: 992px) {
-  .container {
-    width: 750px;
-  }
-}
-
 body {
   font-family: Exo;
   font-weight: 400;
@@ -61,10 +55,29 @@ body {
 
 .navbar {
   border: none;
-  margin-bottom: -10px;
+  margin-bottom: 0;
 }
 .navbar-default {
   background: transparent;
+}
+.navbar-collapse {
+  border-top: none;
+}
+.navbar-form {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  border-top: none;
+  border-bottom: none;
+}
+.form-control {
+  height: 32px;
+  box-shadow: none;
+}
+.table-responsive {
+  border: none;
+}
+.table {
+  margin-bottom: 10px;
 }
 .panel {
   margin-bottom: 10px;
@@ -85,6 +98,18 @@ body {
   margin-top: 10px;
   margin-bottom: 0;
   box-shadow: none;
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .navbar-form {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 h2 {

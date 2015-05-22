@@ -7,15 +7,14 @@ import (
 	"github.com/zenazn/goji/web"
 )
 
-type statusData struct {
+type clientsData struct {
 	layoutData
-	Timestamp string
-	Client    clientStruct
-	Events    []eventStruct
+	Datacenter datacenterStruct
+	Clients    []clientStruct
 }
 
-func statusController(c web.C, w http.ResponseWriter, r *http.Request) {
-	var data statusData
+func clientsController(c web.C, w http.ResponseWriter, r *http.Request) {
+	var data clientsData
 
 	dc, err := config.selectDatacenter(c.URLParams["datacenter"])
 	if err != nil {
@@ -23,25 +22,21 @@ func statusController(c web.C, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data.Client, err = dc.getClientsClient(c.URLParams["client"])
+	data.Clients, err = dc.getClients()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	data.Events, err = dc.getEventsClient(c.URLParams["client"])
+	tpl, err := ace.Load("view/layout", "view/clients", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	tpl, err := ace.Load("view/layout", "view/status", nil)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	data.Title = data.Client.Name
+	data.Title = dc.Name
+	data.Search = true
+	data.Datacenter = dc
 	err = tpl.Execute(w, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
