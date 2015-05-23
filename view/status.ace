@@ -68,14 +68,14 @@
 
   = javascript
     $(function(){
+      $('[id^=collapse-]').on('hide.bs.collapse', function(){
+        $(this).siblings('.panel-heading').find('.fa-chevron-down').removeClass('chevron-rotate');
+      });
       $('[id^=collapse-]').on('hidden.bs.collapse', function(){
         $(this).siblings('.panel-heading').addClass('panel-radius-bottom');
-        $(this).siblings('.panel-heading').find('.fa-chevron-up').removeClass('fa-chevron-up').addClass('fa-chevron-down');
       });
       $('[id^=collapse-]').on('show.bs.collapse', function(){
         $(this).siblings('.panel-heading').removeClass('panel-radius-bottom');
-      });
-      $('[id^=collapse-]').on('shown.bs.collapse', function(){
-        $(this).siblings('.panel-heading').find('.fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        $(this).siblings('.panel-heading').find('.fa-chevron-down').addClass('chevron-rotate');
       });
     });

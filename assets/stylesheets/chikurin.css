@@ -140,3 +140,17 @@ footer a:hover {
   position: absolute;
   right: 0;
 }
+.relative-right .fa-chevron-down {
+  -moz-transition: -moz-transform .35s linear;
+  -webkit-transition: -webkit-transform .35s linear;
+  -o-transition: -o-transform .35s linear;
+  -ms-transition: -ms-transform .35s linear;
+  transition: transform .35s linear;
+}
+.chevron-rotate {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
