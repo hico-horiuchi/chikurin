@@ -1,6 +1,7 @@
 ## chikurin v0.1.0
 
-![image.png](https://raw.githubusercontent.com/hico-horiuchi/chikurin/master/image.png)
+![status.png](https://raw.githubusercontent.com/hico-horiuchi/chikurin/master/status.png)
+![clients.png](https://raw.githubusercontent.com/hico-horiuchi/chikurin/master/clients.png)
 
 #### Requirements
 
