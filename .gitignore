@@ -2,6 +2,7 @@
 .*.swp
 *#*
 .DS_Store
+/_vendor
 /.vendor
 /bin/chikurin*
 /chikurin/bindata.go
