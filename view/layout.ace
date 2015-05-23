@@ -3,6 +3,7 @@ html
   head
     title {{.Title}} | chikurin
     meta name="viewport" content="width=device-width, initial-scale=1"
+    link href="/assets/images/favicon.ico" rel="shortcut icon"
     link href="/assets/stylesheets/application.min.css" rel="stylesheet"
     link href="/assets/stylesheets/chikurin.css" rel="stylesheet"
     script src="/assets/javascripts/application.min.js" type="text/javascript"
