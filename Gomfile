@@ -1,6 +1,7 @@
 gom 'github.com/zenazn/goji'
 gom 'github.com/yosssi/ace'
 gom 'github.com/spf13/cobra'
+gom 'github.com/VividCortex/godaemon'
 gom 'github.com/tcnksm/go-latest'
 
 group :development do
