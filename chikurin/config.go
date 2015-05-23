@@ -16,6 +16,7 @@ type configStruct struct {
 	Datacenters     []datacenterStruct
 	ShowDatacenters bool `json:"show_datacenters"`
 	ShowClients     bool `json:"show_clients"`
+	Port            int
 	Timeout         int
 }
 

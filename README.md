@@ -37,6 +37,7 @@
       ],
       "show_datacenters": true,     // Optional
       "show_clients": true,         // Optional
+      "port": 8000,                 // Optional
       "timeout": 3                  // Optional
     }
 
