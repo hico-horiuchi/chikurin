@@ -18,6 +18,7 @@ type configStruct struct {
 	ShowClients     bool `json:"show_clients"`
 	Port            int
 	Timeout         int
+	Log             string
 }
 
 func LoadConfig() {

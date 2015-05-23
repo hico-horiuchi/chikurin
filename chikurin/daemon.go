@@ -2,14 +2,27 @@ package chikurin
 
 import (
 	"io/ioutil"
+	"log"
 	"os"
 	"strconv"
 	"syscall"
+
+	"github.com/zenazn/goji/graceful"
 )
 
 const pidFile = "/tmp/pid"
 
 func Start() {
+	if config.Log != "" {
+		f, err := os.OpenFile(config.Log, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0644)
+		checkError(err)
+
+		log.SetOutput(f)
+		graceful.PostHook(func() {
+			f.Close()
+		})
+	}
+
 	pid := strconv.Itoa(os.Getpid())
 	ioutil.WriteFile(pidFile, []byte(pid), 0644)
 
