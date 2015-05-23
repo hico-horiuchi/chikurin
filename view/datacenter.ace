@@ -1,0 +1,34 @@
+= content main
+  h2.demibold Datacenters
+
+  .margin-top.table-responsive
+    table.table.table-striped.table-hover
+      tbody
+        {{range .Datacenters}}
+          tr data-name="{{.Name}}"
+            td
+              i.fa.fa-fw.fa-server
+            td {{.Name}}
+            td {{.Host}}
+        {{end}}
+
+  = javascript
+    $(function(){
+      clients = $('tbody').children();
+      $(document).on('click', 'tr[data-name]', function() {
+        location.href = '/' + $(this).attr('data-name');
+      });
+      $('#navbar-search').on('keyup', function() {
+        if ($(this).val() === '') {
+          $('tbody').html(clients);
+        } else {
+          $('tbody').html('');
+          clients.map(function() {
+            regexp = new RegExp($('#navbar-search').val());
+            if ($(this).attr('data-name').match(regexp) !== null) {
+              $('tbody').append($(this));
+            }
+          });
+        }
+      });
+    });

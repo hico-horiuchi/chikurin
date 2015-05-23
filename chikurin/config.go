@@ -13,9 +13,10 @@ var config configStruct
 var timeout = 3 * time.Second
 
 type configStruct struct {
-	Datacenters []datacenterStruct
-	ShowClients bool `json:"show_clients"`
-	Timeout     int
+	Datacenters     []datacenterStruct
+	ShowDatacenters bool `json:"show_datacenters"`
+	ShowClients     bool `json:"show_clients"`
+	Timeout         int
 }
 
 func LoadConfig() {
