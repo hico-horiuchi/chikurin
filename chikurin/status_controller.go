@@ -35,7 +35,9 @@ func statusController(c web.C, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tpl, err := ace.Load("view/layout", "view/status", nil)
+	tpl, err := ace.Load("view/layout", "view/status", &ace.Options{
+		Asset: Asset,
+	})
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

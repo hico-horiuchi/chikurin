@@ -13,6 +13,7 @@
     $ git clone git://github.com/hico-horiuchi/chikurin.git
     $ cd chikurin
     $ make gom
+    $ make bindata
     $ sudo make install
 
 #### Configuration

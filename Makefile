@@ -11,10 +11,13 @@ run:
 fmt:
 	gom exec goimports -w *.go chikurin/*.go
 
-build: fmt
+bindata:
+	gom exec go-bindata -pkg=chikurin -o=chikurin/bindata.go ./assets/... ./view/...
+
+build: fmt bindata
 	gom build $(GO_BUILDOPT) -o bin/chikurin main.go
 
-release: fmt
+release: fmt bindata
 	GOOS=linux GOARCH=amd64 gom build $(GO_BUILDOPT) -o bin/chikurin$(VERSION).linux-amd64 main.go
 	GOOS=linux GOARCH=386 gom build $(GO_BUILDOPT) -o bin/chikurin$(VERSION).linux-386 main.go
 

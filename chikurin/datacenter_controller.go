@@ -15,7 +15,9 @@ type datacenterData struct {
 func datacenterController(c web.C, w http.ResponseWriter, r *http.Request) {
 	var data datacenterData
 
-	tpl, err := ace.Load("view/layout", "view/datacenter", nil)
+	tpl, err := ace.Load("view/layout", "view/datacenter", &ace.Options{
+		Asset: Asset,
+	})
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

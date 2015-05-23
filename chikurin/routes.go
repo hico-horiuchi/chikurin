@@ -7,7 +7,7 @@ import (
 )
 
 func Serve() {
-	goji.Get("/assets/*", http.StripPrefix("/assets", http.FileServer(http.Dir("assets"))))
+	goji.Get("/assets/*", http.FileServer(AssetFileSystem{}))
 
 	goji.Get("/:datacenter/:client", statusController)
 	if config.ShowDatacenters || config.ShowClients {
