@@ -6,7 +6,7 @@
     table.table.table-striped.table-hover
       tbody
         {{range .Clients}}
-          tr data-name="{{.Name}}"
+          tr.click-enable data-name="{{.Name}}"
             td
               i.fa.fa-fw.fa-hdd-o
             td {{.Name}}

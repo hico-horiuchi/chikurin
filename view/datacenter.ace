@@ -5,7 +5,7 @@
     table.table.table-striped.table-hover
       tbody
         {{range .Datacenters}}
-          tr data-name="{{.Name}}"
+          tr.click-enable data-name="{{.Name}}"
             td
               i.fa.fa-fw.fa-server
             td {{.Name}}
