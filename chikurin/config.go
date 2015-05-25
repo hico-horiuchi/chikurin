@@ -5,7 +5,6 @@ import (
 	"errors"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"time"
 )
 
@@ -16,13 +15,13 @@ type configStruct struct {
 	Datacenters     []datacenterStruct
 	ShowDatacenters bool `json:"show_datacenters"`
 	ShowClients     bool `json:"show_clients"`
-	Port            int
 	Timeout         int
+	Bind            string
 	Log             string
 }
 
 func LoadConfig() {
-	bytes, err := ioutil.ReadFile(os.Getenv("HOME") + "/.chikurin.json")
+	bytes, err := ioutil.ReadFile("/etc/chikurin.json")
 	checkError(err)
 
 	json.Unmarshal(bytes, &config)

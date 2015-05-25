@@ -1,18 +1,24 @@
 package chikurin
 
 import (
+	"flag"
 	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
+	"strings"
 	"syscall"
 
 	"github.com/zenazn/goji/graceful"
 )
 
-const pidFile = "/tmp/pid"
+const pidFile = "/tmp/chikurin.pid"
 
 func Start() {
+	if config.Bind != "" {
+		flag.Set("bind", config.Bind)
+	}
+
 	if config.Log != "" {
 		f, err := os.OpenFile(config.Log, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0644)
 		checkError(err)
@@ -44,6 +50,11 @@ func Stop() {
 
 	err = os.Remove(pidFile)
 	checkError(err)
+
+	if strings.HasPrefix(config.Bind, ".") || strings.HasPrefix(config.Bind, "/") {
+		err = os.Remove(config.Bind)
+		checkError(err)
+	}
 }
 
 func Status() int {

@@ -1,9 +1,7 @@
 package chikurin
 
 import (
-	"flag"
 	"net/http"
-	"strconv"
 
 	"github.com/zenazn/goji"
 )
@@ -19,8 +17,5 @@ func Serve() {
 		goji.Get("/", datacenterController)
 	}
 
-	if config.Port != 0 {
-		flag.Set("bind", ":"+strconv.Itoa(config.Port))
-	}
 	goji.Serve()
 }
