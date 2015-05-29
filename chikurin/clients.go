@@ -13,7 +13,7 @@ type clientStruct struct {
 func (dc datacenterStruct) getClients() ([]clientStruct, error) {
 	var clients []clientStruct
 
-	request, err := dc.makeRequest("GET", "/clients", nil)
+	request, err := dc.makeRequest("GET", "/clients")
 	if err != nil {
 		return clients, err
 	}
@@ -30,7 +30,7 @@ func (dc datacenterStruct) getClients() ([]clientStruct, error) {
 func (dc datacenterStruct) getClientsClient(name string) (clientStruct, error) {
 	var client clientStruct
 
-	request, err := dc.makeRequest("GET", "/clients/"+name, nil)
+	request, err := dc.makeRequest("GET", "/clients/"+name)
 	if err != nil {
 		return client, err
 	}

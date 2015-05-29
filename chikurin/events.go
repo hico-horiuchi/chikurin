@@ -20,7 +20,7 @@ func (dc datacenterStruct) getEventsClient(name string) ([]eventStruct, error) {
 	var elapsed time.Duration
 	var then time.Time
 
-	request, err := dc.makeRequest("GET", "/events/"+name, nil)
+	request, err := dc.makeRequest("GET", "/events/"+name)
 	if err != nil {
 		return events, err
 	}
