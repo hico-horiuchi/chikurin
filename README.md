@@ -1,4 +1,4 @@
-## chikurin v0.2.1
+## chikurin v0.3.0
 
 ![status.png](https://raw.githubusercontent.com/hico-horiuchi/chikurin/master/status.png)
 ![clients.png](https://raw.githubusercontent.com/hico-horiuchi/chikurin/master/clients.png)
