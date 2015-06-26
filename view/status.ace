@@ -20,10 +20,10 @@
                 ul.fa-ul
                   li
                     i.fa-li.fa.fa-calendar
-                    | {{.Since}}
+                    | {{since .}}
                   li
                     i.fa-li.fa.fa-at
-                    | {{.At}}
+                    | {{at .Check.Executed}}
                 .well {{.Check.Output}}
         {{end}}
         {{if eq .Check.Status 2}}
@@ -41,10 +41,10 @@
                 ul.fa-ul
                   li
                     i.fa-li.fa.fa-calendar
-                    | {{.Since}}
+                    | {{since .}}
                   li
                     i.fa-li.fa.fa-at
-                    | {{.At}}
+                    | {{at .Check.Executed}}
                 .well {{.Check.Output}}
         {{end}}
       {{end}}
@@ -63,7 +63,7 @@
             ul.fa-ul
               li
                 i.fa-li.fa.fa-at
-                | {{.Client.At}}
+                | {{at .Client.Timestamp}}
     {{end}}
 
   = javascript

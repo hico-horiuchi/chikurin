@@ -54,8 +54,8 @@ func main() {
 
 	rootCmd.AddCommand(&cobra.Command{
 		Use:   "status",
-		Short: "Show status of chikurin daemon",
-		Long:  "Show status of chikurin daemon",
+		Short: "Show the status of chikurin daemon",
+		Long:  "Show the status of chikurin daemon",
 		Run: func(cmd *cobra.Command, args []string) {
 			pid := chikurin.Status()
 			if pid > -1 {
@@ -68,8 +68,8 @@ func main() {
 
 	rootCmd.AddCommand(&cobra.Command{
 		Use:   "version",
-		Short: "Print and check version of chikurin",
-		Long:  "Print and check version of chikurin",
+		Short: "Print and check the version of chikurin",
+		Long:  "Print and check the version of chikurin",
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Print(chikurin.Version(version))
 		},

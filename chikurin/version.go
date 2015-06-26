@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tcnksm/go-latest"
+	latest "github.com/tcnksm/go-latest"
 )
+
+const TIMEOUT_SEC = 1
 
 func verCheck(version string) <-chan *latest.CheckResponse {
 	verCheckCh := make(chan *latest.CheckResponse)
@@ -26,19 +28,19 @@ func verCheck(version string) <-chan *latest.CheckResponse {
 }
 
 func Version(version string) string {
-	var result []byte
-	result = append(result, fmt.Sprintf("chikurin version %s\n", version)...)
+	var print []byte
+	print = append(print, fmt.Sprintf("chikurin version %s\n", version)...)
 	verCheckCh := verCheck(version)
 
 	for {
 		select {
 		case res := <-verCheckCh:
 			if res != nil && res.Outdated {
-				result = append(result, fmt.Sprintf("Latest version of chikurin is %s, please update it\n", res.Current)...)
+				print = append(print, fmt.Sprintf("Latest version of chikurin is %s, please update it\n", res.Current)...)
 			}
-			return string(result)
-		case <-time.After(timeout):
-			return string(result)
+			return string(print)
+		case <-time.After(TIMEOUT_SEC * time.Second):
+			return string(print)
 		}
 	}
 }

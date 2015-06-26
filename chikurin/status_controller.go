@@ -1,52 +1,48 @@
 package chikurin
 
 import (
+	"html/template"
 	"net/http"
 
-	"github.com/yosssi/ace"
+	"github.com/hico-horiuchi/ohgi/sensu"
 	"github.com/zenazn/goji/web"
 )
 
 type statusData struct {
-	layoutData
-	Timestamp string
-	Client    clientStruct
-	Events    []eventStruct
+	controllerData
+	Client *sensu.ClientStruct
+	Events []sensu.EventStruct
 }
 
 func statusController(c web.C, w http.ResponseWriter, r *http.Request) {
-	var data statusData
-
-	dc, err := config.selectDatacenter(c.URLParams["datacenter"])
+	datacenter, err := config.selectDatacenter(c.URLParams["datacenter"])
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	data.Client, err = dc.getClientsClient(c.URLParams["client"])
+	client, err := datacenter.sensuAPI().GetClientsClient(c.URLParams["client"])
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	data.Events, err = dc.getEventsClient(c.URLParams["client"])
+	data := statusData{
+		controllerData: controllerData{
+			Title:  client.Name,
+			Search: true,
+		},
+		Client: &client,
+	}
+
+	data.Events, err = datacenter.sensuAPI().GetEventsClient(c.URLParams["client"])
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	tpl, err := ace.Load("view/layout", "view/status", &ace.Options{
-		Asset: Asset,
+	data.render(w, "view/status", data, &template.FuncMap{
+		"at":    at,
+		"since": since,
 	})
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	data.Title = data.Client.Name
-	err = tpl.Execute(w, data)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
 }

@@ -14,7 +14,7 @@ func Serve() {
 		goji.Get("/:datacenter", clientsController)
 	}
 	if config.ShowDatacenters {
-		goji.Get("/", datacenterController)
+		goji.Get("/", datacentersController)
 	}
 
 	goji.Serve()

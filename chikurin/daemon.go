@@ -12,7 +12,7 @@ import (
 	"github.com/zenazn/goji/graceful"
 )
 
-const pidFile = "/tmp/chikurin.pid"
+const PID_FILE = "/tmp/chikurin.pid"
 
 func Start() {
 	if config.Bind != "" {
@@ -30,13 +30,13 @@ func Start() {
 	}
 
 	pid := strconv.Itoa(os.Getpid())
-	ioutil.WriteFile(pidFile, []byte(pid), 0644)
+	ioutil.WriteFile(PID_FILE, []byte(pid), 0644)
 
 	Serve()
 }
 
 func Stop() {
-	bytes, err := ioutil.ReadFile(pidFile)
+	bytes, err := ioutil.ReadFile(PID_FILE)
 	checkError(err)
 
 	pid, err := strconv.ParseInt(string(bytes), 10, 0)
@@ -48,7 +48,7 @@ func Stop() {
 	err = process.Kill()
 	checkError(err)
 
-	err = os.Remove(pidFile)
+	err = os.Remove(PID_FILE)
 	checkError(err)
 
 	if strings.HasPrefix(config.Bind, ".") || strings.HasPrefix(config.Bind, "/") {
@@ -58,12 +58,12 @@ func Stop() {
 }
 
 func Status() int {
-	_, err := os.Stat(pidFile)
+	_, err := os.Stat(PID_FILE)
 	if err != nil {
 		return -1
 	}
 
-	bytes, err := ioutil.ReadFile(pidFile)
+	bytes, err := ioutil.ReadFile(PID_FILE)
 	checkError(err)
 
 	pid, err := strconv.ParseInt(string(bytes), 10, 0)

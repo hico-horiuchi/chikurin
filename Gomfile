@@ -1,3 +1,4 @@
+gom 'github.com/hico-horiuchi/ohgi/sensu'
 gom 'github.com/zenazn/goji'
 gom 'github.com/yosssi/ace'
 gom 'github.com/spf13/cobra'

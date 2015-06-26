@@ -8,6 +8,11 @@
   - [Golang](https://golang.org/) >= 1
   - [Sensu](http://sensuapp.org/) >= 0.13
 
+#### Documents
+
+  - [github.com/hico-horiuchi/chikurin/chikurin](http://godoc.org/github.com/hico-horiuchi/chikurin/chikurin)
+  - [github.com/hico-horiuchi/ohgi/sensu](http://godoc.org/github.com/hico-horiuchi/ohgi/sensu)
+
 #### Installation
 
     $ git clone git://github.com/hico-horiuchi/chikurin.git
@@ -42,7 +47,7 @@
       "log": "/var/log/chikurin.log"     // Optional
     }
 
-`bind` is address to bind on.  
+`bind` is a address to bind on.  
 If this value has a colon, as in `":8000"` or `"127.0.0.1:9001"`, it will be treated as a TCP address.  
 If it begins with a `"/"` or a `"."`, it will be treated as a path to a UNIX socket.
 
@@ -58,8 +63,8 @@ If it begins with a `"/"` or a `"."`, it will be treated as a path to a UNIX soc
     Available Commands: 
       start       Start chikurin daemon
       stop        Stop chikurin daemon
-      status      Show status of chikurin daemon
-      version     Print and check version of chikurin
+      status      Show the status of chikurin daemon
+      version     Print and check the version of chikurin
       help        Help about any command
     
     Flags:
