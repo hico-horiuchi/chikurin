@@ -42,7 +42,6 @@
       ],
       "show_datacenters": true,          // Optional
       "show_clients": true,              // Optional
-      "timeout": 3,                      // Optional
       "bind": "/var/run/chikurin.sock",  // Optional
       "log": "/var/log/chikurin.log"     // Optional
     }
