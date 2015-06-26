@@ -30,7 +30,7 @@ func statusController(c web.C, w http.ResponseWriter, r *http.Request) {
 	data := statusData{
 		controllerData: controllerData{
 			Title:  client.Name,
-			Search: true,
+			Search: false,
 		},
 		Client: &client,
 	}
