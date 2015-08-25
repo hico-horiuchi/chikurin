@@ -12,7 +12,7 @@ fmt:
 	gom exec goimports -w *.go chikurin/*.go
 
 bindata:
-	gom exec go-bindata -pkg=chikurin -o=chikurin/bindata.go ./assets/... ./view/...
+	gom exec go-bindata -o=chikurin/bindata.go -pkg=chikurin ./assets/... ./view/...
 
 build: fmt bindata
 	gom build $(GO_BUILDOPT) -o bin/chikurin main.go
